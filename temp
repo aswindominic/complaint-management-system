@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SmartComplaints</title>
+  <link rel="stylesheet" href="coverstyles.css" />
+</head>
+<body>
+  <div class="blur-overlay" id="blurOverlay"></div>
+
+  <header>
+    <h1>SmartComplaints</h1>
+    <nav>
+      <ul>
+        <li><a href="#" id="aboutLink">About Us</a></li>
+        <li><a href="login.php">Login</a></li>
+        <li><a href="technician_login.html">Technician Login</a></li>
+        <li><a href="admin_login.php">Admin Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="welcome-section">
+    <h2>Welcome</h2>
+    <p>Your one-stop solution for registering and tracking complaints for smart devices.</p>
+  </section>
+
+  <main>
+    <section class="card-container">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front"><h2>Register Complaint</h2></div>
+          <div class="flip-card-back"><p>You can register complaints for your electronic devices here. We are here to fix it quickly and efficiently!</p></div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front"><h2>Technician Availability</h2></div>
+          <div class="flip-card-back"><p>Check technician availability in real-time before registering your complaint to ensure quick service.</p></div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front"><h2>Track Complaints</h2></div>
+          <div class="flip-card-back"><p>Track the live status of your complaint and receive real-time updates on technician actions.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="aboutPopup" class="about-popup">
+    <button id="closeAbout">✖</button>
+    <h3>About Us</h3>
+    <p>Our Smart Device Complaint Management System simplifies reporting, tracking, and resolving complaints.</p>
+    <p>Users can raise complaints for smartphones, laptops, TVs, etc. These are routed to technician groups based on availability.</p>
+    <p>We ensure transparency, reliability, and speed via real-time dashboards and workflows.</p>
+    <p>Contact Us: +91-9876543210 | support@smartcomplaints.in</p>
+  </div>
+<footer class="site-footer">
+  <div class="footer-content">
+    <h3>Complaint Management System Office</h3>
+    <p>#42, Techno Heights,<br>
+       Innovation Park Road,<br>
+       Kochi, India.</p>
+    <p>📞 +91 98765 43210</p>
+    <p>✉️ support@cmsystem.in</p>
+    <p>&copy; 2025 Complaint Management System. All rights reserved.</p>
+  </div>
+</footer>
+
+  <script>
+  const aboutBtn = document.getElementById("aboutLink");
+  const popup = document.getElementById("aboutPopup");
+  const closeBtn = document.getElementById("closeAbout");
+  const blurOverlay = document.getElementById("blurOverlay");
+
+  // Open popup
+  aboutBtn.onclick = (e) => {
+    e.stopPropagation();
+    popup.style.display = "block";
+    blurOverlay.style.display = "block";
+  };
+
+  // Close popup on button click
+  closeBtn.onclick = () => {
+    popup.style.display = "none";
+    blurOverlay.style.display = "none";
+  };
+
+  // Close popup on outside click
+  document.addEventListener("click", (e) => {
+    if (
+      popup.style.display === "block" &&
+      !popup.contains(e.target) &&
+      e.target.id !== "aboutLink"
+    ) {
+      popup.style.display = "none";
+      blurOverlay.style.display = "none";
+    }
+  });
+
+  // Card flip toggle
+  document.querySelectorAll(".flip-card").forEach(card => {
+    card.addEventListener("click", () => {
+      card.classList.toggle("flipped");
+    });
+  });
+</script>
+</body>
+</html>

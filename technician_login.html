@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Technician Login</title>
+  <link rel="stylesheet" href="technician-login.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Technician Login</h2>
+
+    <form action="technician_login.php" method="POST">
+  <div class="input-group">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" required />
+  </div>
+
+  <div class="input-group">
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required />
+  </div>
+
+  <button type="submit">Login</button>
+
+  <!-- Forgot Password link -->
+  <p style="margin-top: 10px; text-align: center;">
+    <a href="send_reset_link.php">Forgot Password?</a>
+  </p>
+</form>
+  </div>
+</body>
+</html>
