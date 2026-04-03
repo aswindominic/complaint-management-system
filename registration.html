@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="registrationstyles.css" />
+  <style>
+    /* Simple styling for the eye icon container */
+    .password-wrapper {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+    .password-wrapper input[type="password"],
+    .password-wrapper input[type="text"] {
+      width: 100%;
+      padding-right: 35px; /* space for icon */
+      box-sizing: border-box;
+    }
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      user-select: none;
+      width: 20px;
+      height: 20px;
+      fill: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="form_container">
+    <form class="registration_form" id="registrationForm" action="register.php" method="POST">
+      <h1>Register</h1>
+
+      <!-- Error message box -->
+      <div id="error-box" class="error-message" style="display:none; color: red; margin-bottom: 15px;"></div>
+
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" />
+
+      <label for="phone">Mobile Number</label>
+      <input type="tel" id="phone" name="phone" />
+
+      <label for="password">Password</label>
+      <div class="password-wrapper">
+        <input type="password" id="password" name="password" />
+        <svg class="toggle-password" id="togglePassword" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" title="Show/Hide Password">
+          <!-- Eye icon paths will be set by JS -->
+        </svg>
+        
+      </div>
+<label for="address">Address</label>
+<textarea id="address" name="address" rows="4" cols="50" required></textarea>
+      <input type="submit" value="Register" />
+
+      <p>Already have an account? <a href="login.php">Login here</a></p>
+      <p><a href="admin_login.php">Login as Admin</a></p>
+    </form>
+  </div>
+
+  <script>
+  const form = document.getElementById('registrationForm');
+  const errorBox = document.getElementById('error-box');
+  const togglePassword = document.getElementById('togglePassword');
+  const password = document.getElementById('password');
+
+  // SVG path data for eye and eye-off icons
+  const eyeIconPath = `
+    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+    <circle cx="12" cy="12" r="3"/>
+  `;
+
+  const eyeOffIconPath = `
+    <path d="M17.94 17.94A10.94 10.94 0 0 1 12 20
+             c-7 0-11-8-11-8a21.7 21.7 0 0 1 5.59-6.36"/>
+    <line x1="1" y1="1" x2="23" y2="23" />
+  `;
+
+  // Initialize with eye icon
+  togglePassword.innerHTML = eyeIconPath;
+
+  // Function to show error message in the box
+  function showError(message) {
+    errorBox.textContent = message;
+    errorBox.style.display = 'block';
+  }
+
+  // Client-side validation
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("username").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const passwordVal = password.value.trim();
+    const address = document.getElementById("address").value.trim();
+
+    // Name validation
+    if (name === "") {
+      showError("Please enter your name");
+      return false;
+    }
+    if (!/^[A-Za-z\s]+$/.test(name)) {
+      showError("Name should only contain letters and spaces");
+      return false;
+    }
+
+    // Phone validation
+    if (!/^[6-9]\d{9}$/.test(phone)) {
+      showError("Enter a valid 10-digit phone number starting with 6-9");
+      return false;
+    }
+
+    // Address validation
+    if (address === "") {
+      showError("Please enter your address");
+      return false;
+    }
+    if (address.length < 10) {
+      showError("Address should be at least 10 characters long");
+      return false;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      showError("Enter a valid email address");
+      return false;
+    }
+
+    // Password validation
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!passwordRegex.test(passwordVal)) {
+      showError(
+        "Password must be at least 8 characters, include uppercase, lowercase, number, and special character"
+      );
+      return false;
+    }
+
+    errorBox.style.display = 'none'; // Clear errors
+    form.submit(); // submit if all checks pass
+  });
+
+  // Show server-side errors from URL param
+  const urlParams = new URLSearchParams(window.location.search);
+  const error = urlParams.get('error');
+
+  if (error) {
+    let message = "";
+    switch(error) {
+      case 'emailtaken':
+        message = "Email is already registered. Please use another email.";
+        break;
+      case 'invalidinput':
+        message = "Invalid input detected. Please check your details.";
+        break;
+      case 'servererror':
+        message = "Server error occurred. Please try again later.";
+        break;
+      default:
+        message = "An unknown error occurred.";
+    }
+    showError(message);
+  }
+
+  // Toggle password visibility and switch icon
+  togglePassword.addEventListener('click', function () {
+    if (password.type === 'password') {
+      password.type = 'text';
+      togglePassword.innerHTML = eyeOffIconPath;
+    } else {
+      password.type = 'password';
+      togglePassword.innerHTML = eyeIconPath;
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+ background-image: url('electronic.png');  /* ✅ add this */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-container {
+  background: rgba(255, 255, 255, 0.95); /* Slight transparency for background blending */
+  padding: 30px;
+  border-radius: 20px; /* More rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+  width: 320px;
+  text-align: center;
+  border: 1px solid #ccc; /* Optional: subtle border */
+}
+
+.login-container input,
+.login-container button {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 16px;
+  border-radius: 10px; /* Make inputs and button rounded too */
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #0fa886;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #05f8c3;
+}
+
+.error-message {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+input:focus, button:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+}

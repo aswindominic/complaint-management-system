@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url('electronic.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form_container {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px 35px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 420px;
+}
+
+.registration_form h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 28px;
+  color: #333;
+}
+
+.registration_form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 500;
+  color: #222;
+}
+
+.registration_form input[type="text"],
+.registration_form input[type="email"],
+.registration_form input[type="tel"],
+.registration_form input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.registration_form input[type="text"]:focus,
+.registration_form input[type="email"]:focus,
+.registration_form input[type="tel"]:focus,
+.registration_form input[type="password"]:focus {
+  border-color: #0080ff;
+  box-shadow: 0 0 5px rgba(0, 128, 255, 0.5);
+  outline: none;
+}
+
+.registration_form input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 25px;
+  background-color: #0080ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.registration_form input[type="submit"]:hover {
+  background-color: #005fcc;
+}
+
+.registration_form p {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 15px;
+}
+
+.registration_form a {
+  color: #0080ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.registration_form a:hover {
+  text-decoration: underline;
+}
+textarea {
+  width: 100%;
+  box-sizing: border-box; /* includes padding and border in width */
+  max-width: 100%;
+}

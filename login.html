@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Login</title>
+  <link rel="stylesheet" href="loginstyles.css">
+</head>
+<body>
+  
+  <div class="login-container">
+    <h1>User Login</h1>
+
+    <!-- Success message box -->
+    <div id="success-box" style="display: none; background-color: #d4edda; color: #155724;
+         padding: 10px; border-radius: 5px; margin-bottom: 15px; border: 1px solid #c3e6cb;">
+      Registration successful! Please log in.
+    </div>
+
+    <!-- Error message box -->
+    <div id="error-box" class="error-message" style="display: none;"></div>
+
+    <form action="login.php" method="post">
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+
+      <!-- Forgot password link -->
+      <p style="text-align: right; margin: 5px 0;">
+        <a href="forgot_password.php">Forgot password?</a>
+      </p>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <!-- Back link to registration page -->
+    <p style="margin-top: 15px; text-align: center;">
+      Don't have an account? <a href="registration.html">Register here</a>
+    </p>
+  </div>
+
+  <script>
+    // Read URL params to show inline errors or success messages
+    const urlParams = new URLSearchParams(window.location.search);
+    const error = urlParams.get('error');
+    const registered = urlParams.get('registered');
+
+    const errorBox = document.getElementById('error-box');
+    const successBox = document.getElementById('success-box');
+
+    if (error === 'wrongpass') {
+      errorBox.textContent = 'Incorrect password. Please try again.';
+      errorBox.style.display = 'block';
+    } else if (error === 'nouser') {
+      errorBox.textContent = 'No user found with that email.';
+      errorBox.style.display = 'block';
+    }
+
+    if (registered === 'true') {
+      successBox.style.display = 'block';
+      setTimeout(() => {
+        successBox.style.display = 'none';
+      }, 3000); // Hide after 3 seconds
+    }
+  </script>
+</body>
+</html>

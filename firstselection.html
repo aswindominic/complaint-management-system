@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Select Device</title>
+  <link rel="stylesheet" href="selectionstyles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Sticky Gradient Navbar -->
+  <div class="navbar">
+    <h1 class="logo">Device Complaint System</h1>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="dropdown-menu" id="dropdownMenu">
+      <a href="cover.html">🏠 Home</a>
+      <a href="view_complaints.php">📋 View Complaints</a>
+    </div>
+  </div>
+
+  <h2 class="page-title">Select a Device to Register Complaint</h2>
+
+  <div class="device-grid">
+    <button class="device-card" onclick="location.href='smartphone-complaint.php'">
+      <i class="fas fa-mobile-alt"></i>
+      <span>Smartphone</span>
+    </button>
+
+    <button class="device-card" onclick="location.href='laptop-complaint.php'">
+      <i class="fas fa-laptop"></i>
+      <span>Laptop</span>
+    </button>
+
+    <button class="device-card" onclick="location.href='smartwatch-complaint.php'">
+      <i class="fas fa-clock"></i>
+      <span>Smart Watch</span>
+    </button>
+
+    <button class="device-card" onclick="location.href='desktop-complaint.php'">
+      <i class="fas fa-desktop"></i>
+      <span>Desktop</span>
+    </button>
+
+    <button class="device-card" onclick="location.href='television-complaint.php'">
+      <i class="fas fa-tv"></i>
+      <span>Television</span>
+    </button>
+
+    <button class="device-card" onclick="location.href='refrigerator-complaint.php'">
+      <i class="fas fa-snowflake"></i>
+      <span>Refrigerator</span>
+    </button>
+
+    <button class="device-card" onclick="location.href='washingmachine-complaint.php'">
+      <i class="fas fa-soap"></i>
+      <span>Washing Machine</span>
+    </button>
+
+    <button class="device-card" onclick="location.href='ac-complaint.php'">
+      <i class="fas fa-wind"></i>
+      <span>Air Conditioner</span>
+    </button>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('dropdownMenu').classList.toggle('show');
+    }
+  </script>
+</body>
+</html>

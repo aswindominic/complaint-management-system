@@ -1,0 +1,141 @@
+/* manage-users.css */
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  text-align: center;
+  margin: 40px 0 20px;
+  color: #263238;
+  font-size: 28px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  margin-bottom: 40px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+input[type="text"] {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  width: 260px;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #2962ff;
+  box-shadow: 0 0 6px rgba(41, 98, 255, 0.4);
+}
+
+button[type="submit"] {
+  background-color: #2962ff;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0039cb;
+}
+
+.reset-link {
+  font-size: 15px;
+  color: #2962ff;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.reset-link:hover {
+  text-decoration: underline;
+}
+
+/* Table Styling */
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th {
+  background-color: #2962ff;
+  color: white;
+  padding: 14px;
+  text-align: left;
+}
+
+td {
+  padding: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+tr:hover {
+  background-color: #f1f6ff;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+a {
+  color: #1a0dab;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  input[type="text"] {
+    width: 100%;
+  }
+
+  form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+  }
+
+  .reset-link {
+    margin: 10px auto 0;
+    display: block;
+    text-align: center;
+  }
+}
