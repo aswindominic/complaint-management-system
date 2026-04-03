@@ -1,0 +1,250 @@
+/* =========================
+   BODY & PAGE LAYOUT
+========================= */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+    background-size: 400% 400%;
+    animation: gradientAnimation 20s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Gradient animation */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* =========================
+   FORM CONTAINER
+========================= */
+form {
+    background-color: #ffffff;
+    padding: 35px 45px;
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2), 0 0 20px rgba(74,144,226,0.1) inset;
+    width: 100%;
+    max-width: 520px;
+    box-sizing: border-box;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+form:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25), 0 0 25px rgba(74,144,226,0.15) inset;
+}
+
+/* =========================
+   HEADER / TITLE
+========================= */
+h2 {
+    margin-bottom: 28px;
+    color: #333;
+    text-align: center;
+    font-size: 28px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #4a90e2;
+    margin: 10px auto 0 auto;
+    border-radius: 2px;
+}
+
+/* =========================
+   LABELS & INPUTS
+========================= */
+label {
+    display: block;
+    margin-top: 18px;
+    font-weight: 600;
+    color: #555;
+}
+
+select,
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin-top: 6px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 15px;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+select:focus,
+input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
+    outline: none;
+}
+
+/* =========================
+   DYNAMIC TECH ROWS
+========================= */
+.tech-row {
+    background-color: #f9f9f9;
+    padding: 18px 22px;
+    border-radius: 12px;
+    margin-top: 18px;
+    border: 1px solid #e0e0e0;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.tech-row:hover {
+    background-color: #f5f7fa;
+    transform: translateY(-1px);
+}
+
+.tech-row hr {
+    margin-top: 15px;
+    margin-bottom: 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+/* =========================
+   USERNAME & EMAIL PREVIEWS
+========================= */
+.tech-row div[id^="username_preview_"],
+.tech-row div[id^="email_preview_"] {
+    font-size: 0.9em;
+    margin-top: 6px;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+.tech-row div.green {
+    background-color: #e6ffed;
+    color: #2d7a2d;
+}
+
+.tech-row div.red {
+    background-color: #ffe6e6;
+    color: #c53030;
+}
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+button {
+    margin-top: 24px;
+    width: 100%;
+    padding: 14px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+button:hover:not(:disabled) {
+    background-color: #357ac8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+button:disabled {
+    background-color: #a0c4ff;
+    cursor: not-allowed;
+}
+
+/* =========================
+   SUCCESS / INFO MESSAGES
+========================= */
+.message {
+    margin-top: 18px;
+    padding: 14px;
+    border-radius: 10px;
+    background-color: #e6ffed;
+    color: #2d7a2d;
+    font-weight: bold;
+    text-align: center;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-5px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   BACK LINK
+========================= */
+.back-link {
+    display: inline-block;
+    margin-top: 25px;
+    text-decoration: none;
+    color: #4a90e2;
+    font-weight: bold;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #357ac8;
+    text-decoration: underline;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media screen and (max-width: 600px) {
+    form {
+        padding: 22px 28px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}
+/* =========================
+   FLOATING PARTICLES
+========================= */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* allow clicks through particles */
+    z-index: 0; /* behind everything */
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(74, 144, 226, 0.2);
+    animation: floatParticles linear infinite;
+}
+
+@keyframes floatParticles {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.4;
+    }
+    50% { opacity: 0.7; }
+    100% {
+        transform: translateY(-120vh) translateX(40px);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,46 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 30px;
+  color: #222;
+}
+
+.report-card {
+  background-color: #ffffff;
+  padding: 30px 20px;
+  margin: 20px auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+}
+
+.report-card h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.report-card p {
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 5px;
+  color: #007BFF;
+}
+
+.report-card .icon {
+  font-size: 36px;
+  margin-bottom: 15px;
+  color: #007BFF;
+}
+
+footer {
+  margin-top: 40px;
+  font-size: 14px;
+  color: #888;
+}
